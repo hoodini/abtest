@@ -1,0 +1,164 @@
+:root {
+    --blur-amount: 16px;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f3ff 0%, #e0f2fe 100%);
+}
+
+.glass-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.glass-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.2), transparent),
+                radial-gradient(circle at bottom right, rgba(147,51,234,0.1), transparent);
+    z-index: -1;
+}
+
+.backdrop-blur-lg {
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
+}
+
+.campaign-creator, .api-key-input {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.campaign-creator:hover, .api-key-input:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.results-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.results-table th {
+    background: rgba(147,51,234,0.1);
+    color: #4B5563;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    padding: 1rem;
+    text-align: left;
+}
+
+.results-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    color: #374151;
+}
+
+.results-table tr:last-child td {
+    border-bottom: none;
+}
+
+.results-table tr:hover td {
+    background: rgba(255,255,255,0.3);
+}
+
+.magic-animate {
+    animation: slideUpFade 0.6s ease-out;
+}
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chart-container {
+    background: rgba(255,255,255,0.4);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.bg-white\/30 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bg-white\/30:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.copyable-content {
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.copyable-content:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.copy-badge {
+    transition: all 0.2s ease;
+}
+
+.results-table pre {
+    font-family: inherit;
+    margin: 0;
+}
+
+.results-table td {
+    vertical-align: top;
+}
+
+.results-table th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Animation for copy feedback */
+@keyframes copyFeedback {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.copy-feedback {
+    animation: copyFeedback 0.3s ease;
+}
+
+.copyable-content pre {
+    font-family: inherit;
+    margin: 0;
+}
+
+.copyable-content pre.italic {
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    line-height: 1.4;
+}
+
+.border-white\/20 {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Enhance the hover effect for better readability */
+.copyable-content:hover pre.italic {
+    color: #4B5563; /* text-gray-700 */
+} 
